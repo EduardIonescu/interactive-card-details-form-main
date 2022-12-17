@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link rel="stylesheet" href="./styles/styles.css" />
+
+		<title>Interactive card details form</title>
+	</head>
+	<body>
+		<main>
+			<aside>
+				<img
+					src="./images/bg-main-mobile.png"
+					alt=""
+					aria-hidden="true"
+					class="bg-image mobile"
+				/>
+				<img
+					src="./images/bg-main-desktop.png"
+					alt=""
+					aria-hidden="true"
+					class="bg-image desktop"
+				/>
+				<img
+					src="./images/bg-card-back.png"
+					alt="backside of the card"
+					class="bg-card-back"
+				/>
+				<img
+					src="./images/bg-card-front.png"
+					alt="frontside of the card"
+					class="bg-card-front"
+				/>
+				<img
+					src="./images/card-logo.svg"
+					alt=""
+					aria-hidden="true"
+					class="card-logo"
+				/>
+				<p class="cvc">000</p>
+
+				<p class="card-number">0000 0000 0000 0000</p>
+				<p class="cardholder-name">Jane Appleseed</p>
+				<p class="exp-date">
+					<span class="month">00</span>/<span class="year">00</span>
+				</p>
+			</aside>
+			<section>
+				<form class="">
+					<label for="cardholder-name-input" class="info-label"
+						>Cardholder Name</label
+					>
+					<input
+						type="text"
+						placeholder="e.g. Jane Appleseed"
+						class="long-input"
+						id="cardholder-name-input"
+						maxlength="22"
+					/>
+					<p
+						class="error-message error-inactive"
+						id="cardholder-name-input-error"
+					>
+						Can't be blank
+					</p>
+
+					<label for="card-number-input">Card Number</label>
+					<input
+						type="text"
+						placeholder="e.g. 1234 5678 9123 0000"
+						class="long-input"
+						id="card-number-input"
+						maxlength="16"
+					/>
+					<p
+						class="error-message error-inactive"
+						id="card-number-input-error"
+					>
+						Can't be blank
+					</p>
+					<div>
+						<label for="month-input & year-input"
+							>Exp. Date (MM/YY)</label
+						>
+						<label for="cvc-input" class="cvc-label">cvc</label>
+					</div>
+
+					<input
+						type="number"
+						placeholder="MM"
+						class="short-input"
+						id="month-input"
+					/>
+					<input
+						type="number"
+						max="2"
+						placeholder="YY"
+						class="short-input"
+						id="year-input"
+					/>
+					<input
+						type="number"
+						placeholder="e.g. 123"
+						class="medium-input"
+						id="cvc-input"
+					/>
+					<p class="error-message error-inactive" id="mm-yy-error">
+						Can't be blank
+					</p>
+					<p
+						class="error-message error-inactive"
+						id="cvc-input-error"
+					>
+						Can't be blank
+					</p>
+					<button type="submit" class="submit-button">Confirm</button>
+				</form>
+				<article id="completed-state" class="hidden">
+					<img
+						src="./images/icon-complete.svg"
+						alt=""
+						aria-hidden="true"
+						class="image-completed"
+					/>
+					<h1 class="title">thank you!</h1>
+					<p class="description">We've added your card details</p>
+					<button type="button" class="completed-state-button">
+						Continue
+					</button>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>
+<script src="script.js"></script>

@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+/* FONTS */
+$font-family-space-grotesk:'Space Grotesk', sans-serif;
+$font-weight-medium:500;
+
+$font-size-body: 18px;
+$font-size-card-text: 12px;
+
+/* COLORS */
+//active input border
+$primary-linear-gradient: linear-gradient(90deg,
+                                        hsl(249, 99%, 64%),
+                                        hsl(278, 94%, 30%));
+$primary-red: hsl(0, 100%, 66%);
+
+$neutral-white: hsl(0, 0%, 100%);
+$light-grayish-violet: hsl(270, 3%, 87%);
+$dark-grayish-violet: hsl(279, 6%, 55%);
+$very-dark-violet: hsl(278, 68%, 11%);
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family-space-grotesk;
+}
+
+html, body{
+    min-height:100vh;
+    max-width:100vw;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-grayish-violet;
+    font-size: $font-size-body;
+}
+
+main{
+    width:375px;
+    background-color:$neutral-white;
+    box-shadow: hsl(278, 94%, 80%) 0px 5px 15px;
+
+    aside{
+        position:relative;
+        
+        .bg-image{
+            width: 375px;
+            position: relative;
+            z-index:0;
+        }
+        .bg-card-back, .bg-card-front{
+            width: 290px;
+            position: absolute;
+        }
+        .bg-card-back{
+            left:70px;
+            top:2rem;
+        }
+        .bg-card-front{
+            top:122px;
+            left:1rem;
+            
+        }
+        .card-logo{
+            width:3.5rem;
+            z-index:3;
+            position: absolute;
+            top:140px;
+            left:2.2rem;
+        }
+        p{
+            font-size: 11px;
+            color:$neutral-white;
+        }
+        p.cvc{
+            position: absolute;
+            top: 103px;
+            right: 3rem;
+        }
+        p.card-number{
+            position: absolute;
+            bottom: 0.8rem;
+            left:2.2rem;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        p.cardholder-name{
+            position:absolute;
+            bottom:-1rem;
+            text-transform:uppercase; 
+            left:2.2rem;
+            font-size:10px;
+            
+        }
+        p.exp-date{
+            position: absolute;
+            bottom: -1rem;
+            right:6rem;
+        }
+    }
+
+    section{
+        width:100%;
+        margin-top:4rem;
+        padding:1.5rem;
+        position: relative;
+
+        label{
+            text-transform: uppercase;
+            font-size:11px;
+            letter-spacing: 1.2px;
+            color:$very-dark-violet;
+            font-weight:500;
+        }
+        input{
+            padding:0.5rem 0 0.5rem 0.8rem;
+            font-size:$font-size-body;
+            border:2px solid $light-grayish-violet;
+            border-radius:8px;
+            margin-bottom:0.8rem;
+            margin-top:0.5rem;
+        }
+        // hides the input arrows
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0; 
+        /* <-- Apparently some margin are still there even though it's hidden */
+        }   
+        input::placeholder{
+            color:$light-grayish-violet;
+        }
+        input:focus{
+            border: solid 2px transparent;
+            border-radius: 6px;
+             background-image: linear-gradient($neutral-white, $neutral-white), 
+            linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            outline:none;
+        }
+        .long-input{
+            width:327px;
+        }
+        .short-input{
+            width: 4.4rem;
+            margin-right:6px;
+        }
+        .medium-input{
+            width: 10rem;
+            margin-left:4px;
+        }
+        .cvc-label{
+            margin-left:1.8rem;
+        }
+        .submit-button{
+            width: 100%;
+            font-size:$font-size-body;
+            color:$light-grayish-violet;
+            background-color: $very-dark-violet;
+            height:50px;
+            border-radius:8px;
+            margin:1rem 0;
+            cursor:pointer;
+        }
+
+        #completed-state{
+            text-align: center;
+
+            .title{
+                font-weight: $font-weight-medium;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                margin-top: 2.2rem;
+                margin-bottom: 1rem;
+                font-size:28px;
+                color:$very-dark-violet;
+            }
+            .description{
+                color:$dark-grayish-violet;
+                font-size:$font-size-body;
+            }
+            .completed-state-button{
+                @extend .submit-button;
+                margin-top:3rem;
+                margin-bottom:3.5rem;
+            }
+        }
+    }
+}
+
+.desktop{
+    display: none;
+}
+
+.error-active{
+    border-color:$primary-red!important;
+}
+
+.error-message{
+    color:$primary-red;
+    font-size:10px;
+    margin-top:-0.2rem;
+    margin-bottom:0.3rem;
+}
+
+#cvc-input-error{
+    position: absolute;
+    left:11.8rem;
+    margin-top:-1.2rem;
+}
+
+.error-inactive{
+    display: none;
+}
+
+.hidden{
+    display:none;
+}
+
+@media (min-width: 1350px){
+    main{
+        width:1300px;
+        display: flex;
+        
+        aside{
+            .bg-image{
+                width: 430px;
+            }
+            .bg-card-back, .bg-card-front{
+                width:400px;
+            }
+            .bg-card-front{
+                top:10.5rem;
+                left:9rem;
+            }
+            .bg-card-back{
+                left:230px;
+                top:420px;
+            }
+            .card-logo{
+                width:4.8rem;
+                top:192px;
+                left:10.8rem;
+            }
+            p.cvc{
+                top:32.5rem;
+                right:-9.5rem;
+                font-size:$font-size-card-text;
+            }
+            p.card-number{
+                top:300px;
+                left:11rem;
+                font-size:24px;
+                letter-spacing: 3px;
+                word-spacing: 3px;
+                width:max-content;
+            }
+            p.cardholder-name{
+                top:350px;
+                left:11rem;
+                font-size:$font-size-card-text;
+            }
+            p.exp-date{
+                top:350px;
+                font-size:$font-size-card-text;
+                right:-5rem;
+            }
+     
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            form{
+                width:328px;
+                position: relative;
+
+                .submit-button{
+                    transition:all 0.25s ease-out;
+                }
+                .submit-button:hover{
+                    opacity:0.9;
+                    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 10px;
+                }
+                #cvc-input-error{
+                    left:10.5rem;
+                }  
+            }
+
+            #completed-state{
+                width:328px;
+            }
+        }
+    }
+    
+    .desktop{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+}
